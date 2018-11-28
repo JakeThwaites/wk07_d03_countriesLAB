@@ -17,6 +17,7 @@ CountryInfoView.prototype.render = function (country) {
   countryFlag.setAttribute('src', `${country.flag}`);
   countryFlag.setAttribute('id', 'country-flag')
   const countryLanguages = this.createLanguageList(country);
+  countryLanguages.setAttribute('id', 'country-languages')
   const countryRegion = this.createElement('p', country.region);
 
   this.container.innerHTML = '';
@@ -34,13 +35,15 @@ CountryInfoView.prototype.createElement = function (elementType, textContent) {
 };
 
 CountryInfoView.prototype.createLanguageList = function (country) {
-  const languages = country.languages;
   const list = document.createElement('ul');
+  const languages = country.languages;
+
   languages.forEach((language) => {
     const listItem = document.createElement('li');
     listItem.textContent = language.name;
     list.appendChild(listItem);
   });
+
   return list;
 };
 
