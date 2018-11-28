@@ -8,6 +8,7 @@ const Countries = function () {
 
 Countries.prototype.bindEvents = function () {
   this.getData();
+  
   PubSub.subscribe('SelectView:change', (event) => {
     const selectedIndex = event.detail;
     this.publishCountryInfo(selectedIndex);
